@@ -64,7 +64,7 @@ export default function RealtimeSongs({
 		return () => {
 			songChanges.unsubscribe();
 		};
-	});
+	}, []);
 
 	return (
 		<div className="divide-y">

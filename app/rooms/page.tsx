@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
 import AddNewRoomForm from "./addNewRoomForm";
+import Link from "next/link";
 import {
 	Card,
 	CardContent,
@@ -43,22 +44,27 @@ export default async function RoomCreatePage() {
 						const isExpired = new Date(room.created_at) < oneDayAgo;
 
 						return (
-							<Card key={index}>
-								<CardHeader>
-									<CardTitle>{room.name}</CardTitle>
-									<CardDescription>
-										Created at{" "}
-										{new Date(
-											room.created_at
-										).toLocaleString()}
-										{isExpired && (
-											<Badge variant="outline">
-												expired
-											</Badge>
-										)}
-									</CardDescription>
-								</CardHeader>
-							</Card>
+							<Link
+								href={`/rooms/${room.id}`}
+								key={index}>
+								<Card>
+									<CardHeader>
+										<CardTitle>{room.name}</CardTitle>
+										<CardDescription>
+											Created at{" "}
+											{new Date(
+												room.created_at
+											).toLocaleString()}
+											{isExpired && (
+												<Badge variant="outline">
+													expired
+												</Badge>
+											)}{" "}
+											- Pin: {room.id}
+										</CardDescription>
+									</CardHeader>
+								</Card>
+							</Link>
 						);
 					})}
 				</div>
