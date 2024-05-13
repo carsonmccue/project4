@@ -22,11 +22,18 @@ export default function RealtimeSongs({
 }) {
 	const supabase = createClient();
 	const [songs, setSongs] = useState(serverSongs);
+	const [tempUserUuid, setTempUserUuid] = useState<string>("");
 
-	let tempUserUuid = localStorage.getItem("tempUserUuid") || "";
-	if (tempUserUuid === null) {
-		localStorage.setItem("tempUserUuid", uuidv4());
-	}
+	useEffect(() => {
+		const storedUuid = localStorage.getItem("tempUserUuid");
+		if (!storedUuid) {
+			const newUuid = uuidv4();
+			localStorage.setItem("tempUserUuid", newUuid);
+			setTempUserUuid(newUuid);
+		} else {
+			setTempUserUuid(storedUuid);
+		}
+	}, []);
 
 	useEffect(() => {
 		const songChanges = supabase
