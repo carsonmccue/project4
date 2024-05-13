@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/client";
 import RealtimeSongs from "./realtimeSongs";
 import AddNewSongForm from "./addNewSongForm";
+import Navbar from "@/components/ui/navbar";
 
 export default async function RoomPinPage({
 	params,
@@ -65,23 +66,26 @@ export default async function RoomPinPage({
 	}
 
 	return (
-		<div className="p-8 md:p-16">
-			<div className="pb-4 flex flex-col md:flex-row gap-5 justify-between items-start md:items-center">
-				<h1 className="text-4xl text-left w-full font-bold">
-					{roomData.name}&nbsp;
-					<span className="text-primary">Realtime Songs</span>
-				</h1>
-				<AddNewSongForm
-					access_token={access_token as string}
-					pin={pin as string}
-				/>
+		<>
+			<Navbar></Navbar>
+			<div className="p-8 md:p-16">
+				<div className="pb-4 flex flex-col md:flex-row gap-5 justify-between items-start md:items-center">
+					<h1 className="text-4xl text-left w-full font-bold">
+						{roomData.name}&nbsp;
+						<span className="text-primary">Realtime Songs</span>
+					</h1>
+					<AddNewSongForm
+						access_token={access_token as string}
+						pin={pin as string}
+					/>
+				</div>
+				<div className="border-t">
+					<RealtimeSongs
+						serverSongs={songsData}
+						pin={pin as string}
+					/>
+				</div>
 			</div>
-			<div className="border-t">
-				<RealtimeSongs
-					serverSongs={songsData}
-					pin={pin as string}
-				/>
-			</div>
-		</div>
+		</>
 	);
 }
