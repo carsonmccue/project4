@@ -29,14 +29,18 @@ export async function signup(prevState: any, formData: FormData) {
 		password: formData.get("password") as string,
 	};
 
-	const { data: authData, error } = await supabase.auth.signUp(data);
-	console.log(authData, error);
+	const { data: authData, error } = await supabase.auth.signUp({
+		...data,
+		options: {
+			emailRedirectTo: process.env.NEXT_PUBLIC_EMAIL_REDIRECT_TO,
+		},
+	});
 
 	if (error) {
 		console.log(error.message);
 		return { message: error.message };
 	} else {
 		// Handle successful signup here
-		redirect("/rooms");
+		redirect("/login/check-your-email");
 	}
 }
