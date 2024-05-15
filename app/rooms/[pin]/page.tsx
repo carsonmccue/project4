@@ -1,8 +1,8 @@
+export const fetchCache = "default-no-store";
 import { createClient } from "@/lib/supabase/client";
 import RealtimeSongs from "./realtimeSongs";
 import AddNewSongForm from "./addNewSongForm";
 import Navbar from "@/components/ui/navbar";
-import { useRouter } from "next/navigation";
 
 export default async function RoomPinPage({
 	params,
@@ -10,8 +10,6 @@ export default async function RoomPinPage({
 	params: { pin: string };
 }) {
 	const supabase = createClient();
-	const router = useRouter();
-	router.refresh();
 
 	if (!params.pin) {
 		return;

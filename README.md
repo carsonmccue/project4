@@ -31,8 +31,8 @@ https://project4-sheesh.netlify.app/
 
 # Questions
 
-What are the design principles of your site? (Color pallette, fonts, layout, etc.)
-
+-   What are the design principles of your site? (Color pallette, fonts, layout, etc.)
+    -   I like the color orange. I like simple layouts. I like modern fonts (DM Sans) and elegant UI components.
 -   What is the purpose of your site? Why does it need to exist?
     -   The purpose of the site is to allow partygoers or carpoolers to share their favorite music and curate otherwise generic playlists. It doesn't need to exist but it certainly could help people avoid generic playlists that they don't enjoy all that much.
 -   Does your site look good on multiple screen sizes
