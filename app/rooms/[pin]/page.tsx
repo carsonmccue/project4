@@ -48,7 +48,11 @@ export default async function RoomPinPage({
 		{ data: songsData, error: songsError },
 	] = await Promise.all([
 		supabase.from("rooms").select("*").eq("id", pin).single(),
-		supabase.from("songs").select("*").eq("room_id", pin),
+		supabase
+			.from("songs")
+			.select("*")
+			.eq("room_id", pin)
+			.order("votes", { ascending: false }),
 	]);
 
 	const aDayAgo = new Date();
