@@ -77,6 +77,7 @@ export default function Join() {
 											<InputOTPSlot index={2} />
 											<InputOTPSlot index={3} />
 											<InputOTPSlot index={4} />
+											<InputOTPSlot index={5} />
 											<InputOTPSlot index={6} />
 											<InputOTPSlot index={7} />
 										</InputOTPGroup>

@@ -72,7 +72,9 @@ export default async function RoomPinPage({
 				<div className="pb-4 flex flex-col md:flex-row gap-5 justify-between items-start md:items-center">
 					<h1 className="text-4xl text-left w-full font-bold">
 						{roomData.name}&nbsp;
-						<span className="text-primary">Realtime Songs</span>
+						<span className="text-primary">
+							Realtime Songs - {pin}
+						</span>
 					</h1>
 					<AddNewSongForm
 						access_token={access_token as string}

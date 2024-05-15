@@ -28,3 +28,23 @@ The website requires you to use share spotify song links to work (the track id i
 ## Netlify deployment link
 
 https://project4-sheesh.netlify.app/
+
+# Questions
+
+What are the design principles of your site? (Color pallette, fonts, layout, etc.)
+
+-   What is the purpose of your site? Why does it need to exist?
+    -   The purpose of the site is to allow partygoers or carpoolers to share their favorite music and curate otherwise generic playlists. It doesn't need to exist but it certainly could help people avoid generic playlists that they don't enjoy all that much.
+-   Does your site look good on multiple screen sizes
+    -   Yes! The site is fully responsive!
+-   What is the Netlify URL of your site
+    -   https://project4-sheesh.netlify.app/
+-   How does your site use state to keep track of user interaction?
+    -   The site uses react hooks and supabase realtime to sync user interactions with the server and other users.
+-   Does your site fetch data from
+    -   an internal source?
+        -   The site fetches data from supabase for the votes on songs and we also cache the song metadata in their as well to avoid excessive requests to the spotify api.
+    -   a third party API?
+        -   The site fetches metadata about song tracks using copied song links. The trackId is extracted and used to poll the spotify api for more information about the song.
+-   Does your site persist data using a third-party tool or database
+    -   Data is persisted using supabase postgres database.
